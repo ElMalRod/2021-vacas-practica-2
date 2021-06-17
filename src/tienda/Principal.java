@@ -1,5 +1,6 @@
 package src.tienda;
 
+import src.Peliculas.VectorPeliculas;
 import src.clientes.VectorClientes;
 
 public class Principal {
@@ -8,6 +9,7 @@ public class Principal {
         Principal p = new Principal();
     }
 
+    private VectorPeliculas Pelis = new VectorPeliculas();
     private VectorClientes tablaClientes = new VectorClientes();
 
     public Principal(){
@@ -20,6 +22,8 @@ public class Principal {
             System.out.println("2) Mostrar clientes");
             System.out.println("3) Ordenar Clientes Ascente");
             System.out.println("4) Ordenar Clientes Descendente");
+            System.out.println("5) Ingresar Peliculas");
+             System.out.println("6) Mostrar Peliculas");
             System.out.println("-1) Salir");
             System.out.println("\n");
             menu = IngresoDatos.getEntero("Ingrese la opción ", true);
@@ -48,10 +52,25 @@ public class Principal {
                 tablaClientes.ordenarPorNombre(false);
                 tablaClientes.mostrarClientes();
             }
+            if (menu == 5){
+                System.out.println("\n\n");
+                Pelis.agregarPelicula();
+                System.out.println("\n\n\tNUEVA PELICULA\n\n");
+                Pelis.mostrarPeliculas();
 
+            }
+            if (menu == 6){
+                //mostrar clientes
+                System.out.println("Desordenado:");
+                Pelis.mostrarPeliculas();
+                System.out.println("\n\nOrdenado:");
+                Pelis.ordenarPorNombre(true);
+                Pelis.mostrarPeliculas();
+            }
         }
 
     }
 
     
 }
+
